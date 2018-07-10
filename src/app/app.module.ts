@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './shared/material/material.module';
 import { UsersComponent } from './shared/users/users.component';
 import { CallComponent } from './shared/call/call.component';
-import { ListOfActComponent } from './shared/list-of-act/list-of-act.component';
 import { LoginComponent } from './shared/login/login.component'; 
 
 @NgModule({
@@ -15,7 +14,6 @@ import { LoginComponent } from './shared/login/login.component';
     AppComponent,
     CallComponent,
     UsersComponent,
-    ListOfActComponent,
     LoginComponent
    ],
   imports: [

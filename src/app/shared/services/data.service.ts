@@ -75,41 +75,36 @@ export class DataService {
     }
     this.formData.users = this.users;   
   }
-  getUsers(){
-      debugger;
+  getUsers(){   
+      debugger;  
     this.users = [];
-    let user = this.user;
-    const randomId = this.getRandomId();
-    let name = getUser(user.name);       
-    if(name != '')
+    const randomId = this.getRandomId();   
+    for(var i =1; i<5; i++)
     {
-    name.forEach(element => {
+        if(this.user.name != "hcl"+ i + "@trials.com")
         this.users.push({
             id: randomId,
             avatar: `${AVATAR_URL}/${randomId}.png`,
-            name: element  }
-          ) 
-    });  
-    }
+            name: "hcl"+ i + "@trials.com"}
+          )
+    }   
     this.formData.users = this.users; 
   }
 
-  clearCallData(name: string){
-    
+  clearCallData(name: string){    
     let call: Call = this.formData.calls.filter( x=>x.user.name == name)[0];
     const index: number = this.formData.calls.indexOf(call);
     if (index !== -1) {
         this.formData.calls.splice(index, 1);
-    }  
-    
+    }      
   }
-  
 
   resetFormData(){
       removeUser(this.user.name);
       this.formData =  new FormData();
       this.users = [];
   }
+
    private getRandomId(): number {
     return Math.floor(Math.random() * (1000000)) + 1;
   }

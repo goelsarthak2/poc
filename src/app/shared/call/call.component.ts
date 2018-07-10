@@ -24,11 +24,15 @@ export class CallComponent implements OnInit {
    user: User= {
     name : ''
   }
+  status: string;
   
   constructor(   private _activatedRoute: ActivatedRoute, private _router: Router, 
   private dataService: DataService, private _ngZone: NgZone
-  ) {    
+  ) {  
+      window['CallComponent'] = {component: this, zone: _ngZone};    
   }
+
+  
  
   ngOnInit() {   
     debugger;
@@ -47,18 +51,17 @@ export class CallComponent implements OnInit {
       if (this._activatedRoute.snapshot.url[0].path == "answerCall" && this.name != undefined)
      {     
         this.type= false;
-        this.answerCallExist = true;       
+        this.answerCallExist = true;    
+        this.status = "Receiving..";   
      }
      else if (this._activatedRoute.snapshot.url[0].path == "call")
      {
           this.type= true;
           this.user.name = this.name;
           this.user.avatar = this.dataService.users.find(x=>x.name == this.name).avatar;
-          this.call.user = this.user;           
-          if( this.fromListOfAct != "true" )
-          {
-              this.dataService.setCall(this.call); 
-          }   
+          this.call.user = this.user;
+          this.status = "Calling..";             
+          this.dataService.setCall(this.call);            
           makeCall(this.name);
      }    
     
@@ -67,6 +70,11 @@ export class CallComponent implements OnInit {
    showScreen(): boolean{    
       return this.answerCallExist==true || this.type==true;
 
+  }
+
+  statusChange()
+  {
+    this.status = "IN_CALL";      
   }
   rejectCall(){   
     rejectCall();
