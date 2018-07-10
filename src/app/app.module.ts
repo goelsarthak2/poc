@@ -1,17 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './shared/material/material.module';
+import { UsersComponent } from './shared/users/users.component';
+import { CallComponent } from './shared/call/call.component';
+import { ListOfActComponent } from './shared/list-of-act/list-of-act.component';
+import { LoginComponent } from './shared/login/login.component'; 
 
 @NgModule({
   declarations: [
-    AppComponent        
+    AppComponent,
+    CallComponent,
+    UsersComponent,
+    ListOfActComponent,
+    LoginComponent
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

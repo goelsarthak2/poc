@@ -23,11 +23,11 @@ export class LoginComponent implements OnInit {
   ngOnInit() {      
   }
 
-   login(username: string, password: string)   
+   login()   
    {    
     kandy.connect({
-      username: username.trim()+"@trials.com",
-      password: password.trim()+"@1234" 
+      username: this.user.trim()+"@trials.com",
+      password: this.pass.trim()+"@1234" 
     })
 
    }    

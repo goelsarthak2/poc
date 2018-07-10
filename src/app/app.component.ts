@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   subscription: Subscription;
   selectedEmployeeCountRadioButton: string = 'All';
   ngOnInit(): void {  
-    clearStorage();
+    //clearStorage();
     this.showLogout = this.dataService.getFormData().loggedIn == true;
   }
 
