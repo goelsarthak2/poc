@@ -1,0 +1,40 @@
+.call-container {
+    position: fixed;   
+    width: 100%;
+    height:100%;
+}
+
+.mat-card
+{
+    
+    justify-content: space-evenly;
+    display: flex;
+    height: 100%;
+    align-content: center;
+    flex-direction: column;
+}
+.mat-card-header
+{
+    align-self: center;
+
+}
+
+.call_buttons
+{
+    align-self: center;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+    .mat-card-header
+    {
+            align-self: center;
+
+    }
+
+    .call_buttons
+    {
+        align-self: center;
+    }
+} 
